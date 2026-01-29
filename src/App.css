@@ -48,6 +48,68 @@
   border-radius: 15px;
 }
 
+/******* 
+
+
+
+Inputs laterales y sus colores 
+
+
+
+
+*******/
+
+.left-input-container {
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.input-type {
+  border-radius: 20px !important;
+  border-color: transparent !important;
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
+
+
+.input-psychic {
+  color: white !important;
+  background-color: purple !important;
+}
+
+.input-water {
+  color: white !important;
+  background-color: blue !important;
+}
+
+.input-grass {
+  color: white !important;
+  background-color: green !important;
+}
+
+.input-fire {
+  color: white !important;
+  background-color: red !important;
+}
+
+
+
+
+.input-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #84837d;
+}
+
+
+
+
+
+
 @media (max-width: 991px) {
   .bg-navbar-orange {
     height: auto;

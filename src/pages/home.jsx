@@ -1,10 +1,30 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react';
+import PokemonCardComponent from '../components/pokemonCardComponent.jsx';
+import { Row } from 'react-bootstrap';
+
+
+import getPokemons from '../services/pokeApiService.jsx';
 function Home() {
-  const [count, setCount] = useState(0)
+  const [pokemons, setPokemons] = useState([])
+
+
+  useEffect(() => {
+    getPokemons().then((response) => {
+      setPokemons(response.results)
+    });
+
+
+  }, []);
+
   return (
 
     <>
-      <h1>Home Page</h1>
+      <Row>
+        {pokemons.map((pokemon) => (
+          <PokemonCardComponent key={pokemon.name} name={pokemon.name} url={pokemon.url} />
+        ))}
+      </Row>
+
     </>
   )
 }

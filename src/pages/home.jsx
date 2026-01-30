@@ -3,7 +3,7 @@ import PokemonCardComponent from '../components/pokemonCardComponent.jsx';
 import { Row } from 'react-bootstrap';
 
 
-import getPokemons from '../services/pokeApiService.jsx';
+import { getPokemons } from '../services/pokeApiService.jsx';
 function Home() {
   const [pokemons, setPokemons] = useState([])
 

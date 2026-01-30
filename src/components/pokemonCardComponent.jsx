@@ -8,12 +8,18 @@ function PokemonCardComponent({ name, url }) {
 
     const [hp, sethp] = useState(0);
     const [pokedexPosition, setPokedexPosition] = useState("");
+    const [image, setImage] = useState("");
+    const [abilities, setAbilities] = useState([]);
+    const [description, setDescription] = useState("");
 
 
     useEffect(() => {
         getPokemonDetails(url).then((response) => {
             sethp(response.stats[0].base_stat);
             setPokedexPosition(formatPokedexPosition(response.order));
+            setImage(response.sprites.front_default);
+            setAbilities(response.abilities.map((ability) => ability.ability.name));
+            setDescription(response.species.name);
         });
     }, [url]);
 
@@ -33,10 +39,11 @@ function PokemonCardComponent({ name, url }) {
                             </div>
                         </div>
                         <div className="pokemon-card-image-container">
-                            <img src="" alt="" />
+                            <img src={image} alt={name} />
                         </div>
                         <div className="pokemon-card-description">
-
+                            <label className="life-stat">Abilities: {abilities.join(", ")}</label>
+                            <label className="life-stat">Description: {description}</label>
                         </div>
                     </div>
                 </div>

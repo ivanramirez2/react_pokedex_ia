@@ -3,6 +3,7 @@ import "./pokemonCardComponent.css";
 import { Col } from "react-bootstrap";
 import { getPokemonDetails } from "../services/pokeApiService";
 import formatPokedexPosition from "../services/helperService";
+import pokemonTypeColors from "../services/helperPokemonTypeColors";
 
 function PokemonCardComponent({ name, url }) {
 
@@ -11,6 +12,7 @@ function PokemonCardComponent({ name, url }) {
     const [image, setImage] = useState("");
     const [abilities, setAbilities] = useState([]);
     const [description, setDescription] = useState("");
+    const [color, setColor] = useState("");
 
 
     useEffect(() => {
@@ -20,13 +22,14 @@ function PokemonCardComponent({ name, url }) {
             setImage(response.sprites.front_default);
             setAbilities(response.abilities.map((ability) => ability.ability.name));
             setDescription(response.species.name);
+            setColor(pokemonTypeColors[response.types[0].type.name]);
         });
     }, [url]);
 
     return (
         <>
             <Col lg={4}>
-                <div className="pokemon-card-main">
+                <div className="pokemon-card-main" style={{ backgroundColor: color }}>
                     <div className="pokemon-card-container">
                         <div className="pokemon-card-header">
                             <div>

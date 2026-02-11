@@ -19,6 +19,14 @@ function Home() {
   return (
 
     <>
+
+
+      <Row>
+        {pokemons.map((pokemon) => (
+          <PokemonCardComponent key={pokemon.name} name={pokemon.name} url={pokemon.url} />
+        ))}
+      </Row>
+
       <div className="d-flex justify-content-between mb-4 mt-4">
         <button
           className="btn btn-primary"
@@ -34,12 +42,6 @@ function Home() {
           Siguiente
         </button>
       </div>
-
-      <Row>
-        {pokemons.map((pokemon) => (
-          <PokemonCardComponent key={pokemon.name} name={pokemon.name} url={pokemon.url} />
-        ))}
-      </Row>
 
     </>
   )

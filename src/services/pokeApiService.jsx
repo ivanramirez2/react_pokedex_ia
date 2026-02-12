@@ -10,4 +10,12 @@ function getPokemonDetails(url) {
     return fetch(url).then((response) => response.json());
 }
 
-export { getPokemons, getPokemonDetails };
+function getTypes() {
+    return fetch(`${BASE_URL}/type`).then((response) => response.json());
+}
+
+function getPokemonsByType(typeUrl) {
+    return fetch(typeUrl).then((response) => response.json());
+}
+
+export { getPokemons, getPokemonDetails, getTypes, getPokemonsByType };

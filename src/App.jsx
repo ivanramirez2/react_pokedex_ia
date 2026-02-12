@@ -20,7 +20,7 @@ import Col from 'react-bootstrap/Col';
 
 function App() {
 
-
+  const [searchTerm, setSearchTerm] = useState('');
 
   return (
     <>
@@ -40,6 +40,8 @@ function App() {
                       type="text"
                       placeholder="Buscar por nombre, tipo, etc..."
                       className=" mr-sm-2"
+                      value={searchTerm}
+                      onChange={(e) => setSearchTerm(e.target.value)}
                     />
                   </Col>
                 </Row>
@@ -84,7 +86,7 @@ function App() {
 
           <Col className='filter-bar' lg={10} md={12} >
             <Routes>
-              <Route path="/" element={<Home />} />
+              <Route path="/" element={<Home searchTerm={searchTerm} />} />
             </Routes>
           </Col>
         </Row>
